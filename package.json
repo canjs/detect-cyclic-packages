@@ -1,0 +1,19 @@
+{
+  "name": "detect-cyclic-packages",
+  "version": "0.1.0",
+  "description": "A utility script to determine whether any deep depdendencies depend on the current package",
+  "main": "index.js",
+  "bin": {
+    "detect-cyclic-packages": "bin/detect-cyclic-packages.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "utility",
+    "cycle",
+    "detection"
+  ],
+  "author": "Bitovi",
+  "license": "MIT"
+}
