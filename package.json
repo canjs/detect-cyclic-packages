@@ -1,6 +1,6 @@
 {
   "name": "detect-cyclic-packages",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A utility script to determine whether any deep depdendencies depend on the current package",
   "main": "index.js",
   "bin": {
