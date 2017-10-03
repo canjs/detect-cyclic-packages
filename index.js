@@ -1,8 +1,14 @@
 var fs = require("fs");
 var path = require("path");
 
-module.exports = function(rootDir, atAnyLevel) {
+module.exports = function(rootDir, ignores, atAnyLevel) {
 	var visited = {};
+
+	if(Array.isArray(ignores)) {
+		ignores.forEach(function(ignore) {
+			visited[ignore] = true;
+		});
+	}
 
 	function readPackage(folder, bases, readDevDeps) {
 		// Assume that if a package folder doesn't exists where expected, it's been deduped
@@ -12,7 +18,6 @@ module.exports = function(rootDir, atAnyLevel) {
 
 		var depsToVisit = Object.keys(packageJson.dependencies || {});
 		if(readDevDeps) {
-			console.log("reading dev deps for folder", folder);
 			depsToVisit = Object.keys(packageJson.devDependencies || {});
 		}
 
