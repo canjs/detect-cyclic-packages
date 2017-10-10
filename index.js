@@ -18,9 +18,8 @@ module.exports = function(rootDir, ignores, atAnyLevel) {
 
 		var depsToVisit = Object.keys(packageJson.dependencies || {});
 		if(readDevDeps) {
-			depsToVisit = Object.keys(packageJson.devDependencies || {});
+			depsToVisit = depsToVisit.concat(Object.keys(packageJson.devDependencies || {}));
 		}
-
 		var cycles = [];
 
 		depsToVisit = depsToVisit.filter(function(dep) {
